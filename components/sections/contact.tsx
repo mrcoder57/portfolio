@@ -10,10 +10,10 @@ export default function ContactSection() {
 
   const contactCode = `// Let's Connect
 const contact = {
-  email: "john@example.com",
-  github: "github.com/johndoe",
-  linkedin: "linkedin.com/in/johndoe",
-  twitter: "twitter.com/johndoe"
+  email: "tiwariji2300@gmail.com",
+  github: "github.com/mrcoder57",
+  linkedin: "linkedin.com/in/aman-tiwari-526047237",
+  twitter: "twitter.com/AmanTiwari57"
 };
 
 console.log(contact);`

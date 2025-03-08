@@ -9,12 +9,12 @@ export default function AboutSection() {
 
   const aboutCode = `// About Me
 const about = {
-  name: "John Doe",
+  name: "Aman Tiwari",
   role: "Full Stack | DevOps | Blockchain | AI Developer",
   description: "I build scalable applications, deploy cloud solutions, and write smart contracts.",
   experience: "5+ years of professional experience",
   location: "San Francisco, CA",
-  education: "M.S. Computer Science, Stanford University",
+  // education: "M.S. Computer Science, Stanford University",
   interests: ["Open Source", "AI Ethics", "Blockchain Technology", "Cloud Architecture"]
 };
 
@@ -39,13 +39,13 @@ console.log(about);`
           </div>
           <div className="ml-4">
             <span className="text-cyan-300">name</span>
-            <span className="text-white">:</span> <span className="text-green-400">&quot;John Doe&quot;</span>
+            <span className="text-white">:</span> <span className="text-green-400">&quot;Aman Tiwari&quot;</span>
             <span className="text-white">,</span>
           </div>
           <div className="ml-4">
             <span className="text-cyan-300">role</span>
             <span className="text-white">:</span>{" "}
-            <span className="text-green-400">&quot;Full Stack | DevOps | Blockchain | AI Developer&quot;</span>
+            <span className="text-green-400">&quot;Full Stack | DevOps | Blockchain | Aspiring AI Developer&quot;</span>
             <span className="text-white">,</span>
           </div>
           <div className="ml-4">
@@ -67,12 +67,12 @@ console.log(about);`
             <span className="text-white">:</span> <span className="text-green-400">&quot;San Francisco, CA&quot;</span>
             <span className="text-white">,</span>
           </div>
-          <div className="ml-4">
+          {/* <div className="ml-4">
             <span className="text-cyan-300">education</span>
             <span className="text-white">:</span>{" "}
             <span className="text-green-400">&quot;M.S. Computer Science, Stanford University&quot;</span>
             <span className="text-white">,</span>
-          </div>
+          </div> */}
           <div className="ml-4">
             <span className="text-cyan-300">interests</span>
             <span className="text-white">:</span> <span className="text-white">[</span>
