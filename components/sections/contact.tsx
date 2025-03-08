@@ -70,13 +70,13 @@ console.log(contact);`
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="mailto:john@example.com"
+              href="mailto:tiwariji2300@gmail.com"
               className="p-4 bg-zinc-800 rounded border border-zinc-700 flex items-center hover:bg-zinc-700 transition-colors"
             >
               <Mail className="h-5 w-5 mr-3 text-purple-400" />
               <div>
                 <div className="text-sm text-gray-400">Email</div>
-                <div>john@example.com</div>
+                <div>tiwariji2300@gmail.com</div>
               </div>
             </a>
             <a
@@ -88,7 +88,7 @@ console.log(contact);`
               <Github className="h-5 w-5 mr-3 text-purple-400" />
               <div>
                 <div className="text-sm text-gray-400">GitHub</div>
-                <div>github.com/johndoe</div>
+                <div>github.com/mrcoder57</div>
               </div>
             </a>
             <a
@@ -100,7 +100,7 @@ console.log(contact);`
               <Linkedin className="h-5 w-5 mr-3 text-blue-500" />
               <div>
                 <div className="text-sm text-gray-400">LinkedIn</div>
-                <div>linkedin.com/in/johndoe</div>
+                <div>linkedin.com/in/aman-tiwari-526047237</div>
               </div>
             </a>
             <a
@@ -112,7 +112,7 @@ console.log(contact);`
               <Twitter className="h-5 w-5 mr-3 text-cyan-400" />
               <div>
                 <div className="text-sm text-gray-400">Twitter</div>
-                <div>twitter.com/johndoe</div>
+                <div>twitter.com/AmanTiwari57</div>
               </div>
             </a>
           </div>

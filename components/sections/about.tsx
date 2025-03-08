@@ -14,7 +14,7 @@ const about = {
   description: "I build scalable applications, deploy cloud solutions, and write smart contracts.",
   experience: "5+ years of professional experience",
   location: "San Francisco, CA",
-  // education: "M.S. Computer Science, Stanford University",
+
   interests: ["Open Source", "AI Ethics", "Blockchain Technology", "Cloud Architecture"]
 };
 
@@ -64,7 +64,7 @@ console.log(about);`
           </div>
           <div className="ml-4">
             <span className="text-cyan-300">location</span>
-            <span className="text-white">:</span> <span className="text-green-400">&quot;San Francisco, CA&quot;</span>
+            <span className="text-white">:</span> <span className="text-green-400">&quot;Remote, India&quot;</span>
             <span className="text-white">,</span>
           </div>
           {/* <div className="ml-4">
@@ -98,7 +98,7 @@ console.log(about);`
           <div className="mt-4 p-4 bg-zinc-800 rounded border border-zinc-700">
             <div className="font-bold mb-2">{"{"}</div>
             <div className="ml-4">
-              <span className="text-cyan-300">name</span>: <span className="text-white">&quot;John Doe&quot;,</span>
+              <span className="text-cyan-300">name</span>: <span className="text-white">&quot;Aman Tiwari&quot;,</span>
             </div>
             <div className="ml-4">
               <span className="text-cyan-300">role</span>:{" "}
@@ -116,12 +116,12 @@ console.log(about);`
             </div>
             <div className="ml-4">
               <span className="text-cyan-300">location</span>:{" "}
-              <span className="text-white">&quot;San Francisco, CA&quot;,</span>
+              <span className="text-white">&quot;Remote, India and Internationally &quot;,</span>
             </div>
-            <div className="ml-4">
+            {/* <div className="ml-4">
               <span className="text-cyan-300">education</span>:{" "}
               <span className="text-white">&quot;M.S. Computer Science, Stanford University&quot;,</span>
-            </div>
+            </div> */}
             <div className="ml-4">
               <span className="text-cyan-300">interests</span>:{" "}
               <span className="text-white">
