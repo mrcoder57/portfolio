@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import EditorLayout from "@/components/layout/editor-layout"
 import Terminal from "@/components/terminal"
 import CommandProcessor from "@/components/command-processor"
@@ -8,6 +8,15 @@ import type { JSX } from "react/jsx-runtime"
 
 export default function Home() {
   const [output, setOutput] = useState<JSX.Element[]>([])
+  const bottomRef = useRef<HTMLDivElement>(null)
+
+  const scrollToBottom = () => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [output])
 
   useEffect(() => {
     setOutput([
@@ -52,6 +61,7 @@ export default function Home() {
       <div className="min-h-screen">
         <EditorLayout output={output} onCommandExecute={handleCommand}>
           <Terminal onCommand={handleCommand} />
+          <div ref={bottomRef} />
         </EditorLayout>
       </div>
     </ThemeProvider>

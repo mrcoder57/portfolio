@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 import { Link } from "lucide-react"
 
 export default function SmartContractsSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const contractsCode = `// Smart Contracts Portfolio
 const smartContracts = [
@@ -35,6 +36,10 @@ console.table(smartContracts);`
   useEffect(() => {
     if (!isTyping) {
       setContent(contractsCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
@@ -60,7 +65,7 @@ console.table(smartContracts);`
   ]
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={contractsCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (

@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import FileExplorer from "@/components/file-explorer"
 import { Code, TerminalIcon, Github, Linkedin, Mail, Twitter } from "lucide-react"
 import type { JSX } from "react/jsx-runtime"
+import { useRef, useEffect } from "react"
 
 interface EditorLayoutProps {
   children: ReactNode
@@ -10,6 +11,22 @@ interface EditorLayoutProps {
 }
 
 export default function EditorLayout({ children, output, onCommandExecute }: EditorLayoutProps) {
+  const editorContentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to bottom when output changes
+  useEffect(() => {
+    if (editorContentRef.current) {
+      editorContentRef.current.scrollTop = editorContentRef.current.scrollHeight;
+    }
+  }, [output]);
+
+  // Scroll to bottom when children change (for typing effect completion)
+  useEffect(() => {
+    if (editorContentRef.current) {
+      editorContentRef.current.scrollTop = editorContentRef.current.scrollHeight;
+    }
+  }, [children]);
+
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white font-mono">
       {/* Top Bar */}
@@ -65,7 +82,7 @@ export default function EditorLayout({ children, output, onCommandExecute }: Edi
           </div>
 
           {/* Editor Content */}
-          <div className="flex-1 overflow-auto p-4 bg-zinc-900">
+          <div ref={editorContentRef} className="flex-1 overflow-auto p-4 bg-zinc-900">
             {output}
             {children}
           </div>

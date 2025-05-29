@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 import { Code2, Server, Database, Cloud, Cpu, GitBranch, Terminal, Shield } from "lucide-react"
 
 export default function StackSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const stackCode = `// Tech Stack
 const stack = {
@@ -25,11 +26,15 @@ console.log(stack);`
   useEffect(() => {
     if (!isTyping) {
       setContent(stackCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={stackCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (

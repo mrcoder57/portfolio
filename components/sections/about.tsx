@@ -1,11 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 
 export default function AboutSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const aboutCode = `// About Me
 const about = {
@@ -23,11 +24,15 @@ console.log(about);`
   useEffect(() => {
     if (!isTyping) {
       setContent(aboutCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={aboutCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (

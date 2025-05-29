@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 import { Calendar, Tag, ArrowRight } from "lucide-react"
 
 export default function BlogSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const blogCode = `// Blog & Insights
 const blogPosts = [
@@ -46,6 +47,10 @@ console.table(blogPosts);`
   useEffect(() => {
     if (!isTyping) {
       setContent(blogCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
@@ -81,7 +86,7 @@ console.table(blogPosts);`
   ]
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={blogCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (

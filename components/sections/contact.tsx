@@ -1,19 +1,20 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 import { Mail, Github, Linkedin, Twitter } from "lucide-react"
 
 export default function ContactSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const contactCode = `// Let's Connect
 const contact = {
   email: "tiwariji2300@gmail.com",
   github: "github.com/mrcoder57",
   linkedin: "linkedin.com/in/aman-tiwari-526047237",
-  twitter: "twitter.com/AmanTiwari57"
+  twitter: "x.com/AmanTiwari57"
 };
 
 console.log(contact);`
@@ -21,11 +22,15 @@ console.log(contact);`
   useEffect(() => {
     if (!isTyping) {
       setContent(contactCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={contactCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (
@@ -80,7 +85,7 @@ console.log(contact);`
               </div>
             </a>
             <a
-              href="https://github.com/johndoe"
+              href="https://github.com/mrcoder57"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 bg-zinc-800 rounded border border-zinc-700 flex items-center hover:bg-zinc-700 transition-colors"
@@ -92,7 +97,7 @@ console.log(contact);`
               </div>
             </a>
             <a
-              href="https://linkedin.com/in/johndoe"
+              href="https://linkedin.com/in/aman-tiwari-526047237"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 bg-zinc-800 rounded border border-zinc-700 flex items-center hover:bg-zinc-700 transition-colors"
@@ -104,7 +109,7 @@ console.log(contact);`
               </div>
             </a>
             <a
-              href="https://twitter.com/johndoe"
+              href="https://twitter.com/AmanTiwari57"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 bg-zinc-800 rounded border border-zinc-700 flex items-center hover:bg-zinc-700 transition-colors"

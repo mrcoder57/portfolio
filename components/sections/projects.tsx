@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import TypingEffect from "@/components/typing-effect"
 import { ExternalLink } from "lucide-react"
 
 export default function ProjectsSection() {
   const [isTyping, setIsTyping] = useState(true)
   const [content, setContent] = useState("")
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const projectsCode = `// My Projects
 const projects = [
@@ -41,11 +42,15 @@ console.table(projects);`
   useEffect(() => {
     if (!isTyping) {
       setContent(projectsCode)
+      // Scroll into view after content is set
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+      }
     }
   }, [isTyping])
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in" ref={sectionRef}>
       {isTyping ? (
         <TypingEffect text={projectsCode} speed={10} onComplete={() => setIsTyping(false)} />
       ) : (
